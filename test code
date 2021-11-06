@@ -1,0 +1,92 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class bouns1 extends JFrame
+{
+  private static final int WIDTH = 320;
+  private static final int HEIGHT = 200;
+  double price,total;
+  
+  private JCheckBox box1,box2,box3,box4;
+  private JLabel L1;
+  
+  public bouns1()
+  {
+    setTitle("JCheckBox" );
+    setSize(WIDTH, HEIGHT);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    createContents();
+    setVisible(true);
+  } 
+
+  private void createContents()
+  {
+   setLayout(new FlowLayout());
+   JLabel L2 = new JLabel("10$");
+   JLabel L3 = new JLabel("3$");
+   JLabel L4 = new JLabel("1$");
+   JLabel L5 = new JLabel("2$");
+   L1 = new JLabel ("Total Price");
+   
+   box1=new JCheckBox("burger");
+   box2=new JCheckBox("chpis");
+   box3=new JCheckBox("extrachesee");
+   box4=new JCheckBox("cola");
+
+   add(L2);
+   add(box1);
+   add(L3);
+   add(box2);
+   add(L4);
+   add(box3);
+   add(L5);
+   add(box4);
+   add(L1);
+ 
+   box1.addActionListener(new L());
+   box2.addActionListener(new L());
+   box3.addActionListener(new L());
+   box4.addActionListener(new L());
+
+  }
+
+  private class L implements ActionListener
+  {
+    public void actionPerformed(ActionEvent e)
+    {
+    	int total = 0;
+    	  if(box1.isSelected()==true){
+
+    	       price=10;
+    	       total += price;
+
+    	    }
+
+    	   if(box2.isSelected()==true){
+
+    	       price=3;
+    	       total += price;
+
+    	    }if(box3.isSelected()==true){
+
+    	       price=1;
+    	       total += price;
+
+    	    }if(box4.isSelected()==true){
+
+     	       price=3;
+     	       total += price;
+    } 
+    	   
+            L1.setText("Total Price" + total); 
+
+    }
+  }
+
+
+  public static void main(String[] args)
+  {
+    new bouns1();
+  }
+}
